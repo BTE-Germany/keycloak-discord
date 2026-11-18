@@ -1,3 +1,15 @@
+# 0.7.0 (2026-11-18)
+
+
+### Features
+
+* update to Keycloak 26.8.2 ([1d34994](https://github.com/BTE-Germany/keycloak-discord/commit/1d34994034abd99611c32143f99572ea8d1e2e87))
+
+
+### Notes
+
+* Requires Keycloak 26.5.0 or later. 0.6.x fails on Keycloak 26.5+ with a `NoSuchMethodError` during login; upgrade Keycloak and the jar together (see README).
+
 ## [0.6.1](https://github.com/wadahiro/keycloak-discord/compare/v0.6.0...v0.6.1) (2024-11-02)
 
 
