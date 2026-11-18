@@ -8,6 +8,25 @@ Keycloak Social Login extension for Discord.
 Download `keycloak-discord-<version>.jar` from [Releases page](https://github.com/wadahiro/keycloak-discord/releases).
 Then deploy it into `$KEYCLOAK_HOME/providers` directory.
 
+### Compatibility
+
+| keycloak-discord | Keycloak        |
+|------------------|-----------------|
+| 0.7.0 and later  | 26.5.0 and later (built against 26.8.2) |
+| 0.6.x            | 26.0.x – 26.4.x |
+
+Keycloak 26.5 changed the broker SPI in a binary-incompatible way. On Keycloak 26.5 or later, 0.6.x still starts, but every Discord login fails with a `NoSuchMethodError`.
+
+### Upgrading
+
+The provider id (`discord`), the mapper id (`discord-user-attribute-mapper`) and the configuration keys (e.g. `allowedGuilds`) are unchanged. Existing identity providers, mappers and linked users keep working without any manual steps:
+
+1. Stop Keycloak.
+2. Replace the old `keycloak-discord-*.jar` in `$KEYCLOAK_HOME/providers` with the new one. Keep only one version in the directory.
+3. Upgrade Keycloak to 26.5 or later, run `kc.sh build` if you use an optimized build, and start Keycloak.
+
+Upgrade Keycloak and the jar at the same time: 0.6.x does not work on 26.5+, and 0.7.0+ does not work on 26.4 or older.
+
 ## Setup
 
 ### Discord
